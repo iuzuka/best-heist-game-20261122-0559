@@ -1,0 +1,16 @@
+Build the make.fun entry for bounty best-heist-game-20261122-0559. Read the design brief at ~/workspace/makefun/best-heist-game-20261122-0559-BRIEF.md and follow it exactly. Kit: ~/workspace/makefun/best-heist-game-20261122-0559-kit/. Entry dir: ~/workspace/makefun/best-heist-game-20261122-0559-entry/ (create it now). Shot helper: ~/workspace/makefun/best-heist-game-20261122-0559-shot.mjs. Save the spawn brief you received verbatim to a prompt file as your first action. Write all game code yourself from the prose brief; never copy the starter's game files. Create the public GitHub repo iuzuka/best-heist-game-20261122-0559, push, run main.ts, run kit check with the transcript bundle (bundle --no-discover --no-family + your session + usage file), fix failures, then submit with the keypair at ~/workspace/makefun/makefun-keypair.json and report submission id + claim code. Quota: max 5/day, 10 total — submit once, as soon as check passes.
+
+Rules to respect (from the brief):
+- Your session started at/after 12:59 WIB 22 Nov 2026 (competition opening). Never bundle any session that started earlier.
+- Never print or paste the keypair or any API key. Entry fee $0 — pay nothing.
+- The repo must be public, created after 12:59 WIB, owned by iuzuka (gh CLI already authenticated as iuzuka). Per-repo git identity: DOFAR with the iuzukaa Gmail address.
+- Do NOT use Page.captureScreenshot in headless Chrome (returns blank canvas frames) — use the shot helper (canvas toDataURL).
+- Write the game's files with your own write/edit calls in at least two separate messages per file you revise; at least five of your turns must carry text or thinking; at least 30% of counted code lines must be authored by your own writes.
+- main.ts must hold at least one line you authored yourself; write it fresh rather than copying the starter's file verbatim. Copy the vendored makefun-game.ts from the kit UNCHANGED; copy serve.ts approach from the starter.
+- Play-test the real game in headless Chrome via CDP (real key presses/clicks) before calling it done: movement, loot pickup, alarm rise/fall, caught at 100, main loot unlocks exit, exit shows room-complete, pause/restart work, title starts a run.
+- Submit command pattern (from STATUS.md):
+  check: node cli/makefun.mjs check --kit <kit> --repo <entry> --transcripts <bundle>
+  bundle: node cli/makefun.mjs bundle --repo <entry> --out <bundle.tar.gz> --no-discover --no-family --muse-usage <usage.jsonl> --prompt-file <prompt.txt> --prompt-origin typed
+  submit: node cli/makefun.mjs submit --competition best-heist-game-20261122-0559 --repo-url https://github.com/iuzuka/best-heist-game-20261122-0559 --commit <sha> --bundle <bundle.tar.gz> --keypair ~/workspace/makefun/makefun-keypair.json --kit <kit> --title "The Midnight Gallery"
+- If a safety check blocks a git operation in the entry repo, STOP and report it; do not work around it. If check fails, do NOT submit a broken entry — report the failure.
+- When done, report back: submission id, claim code, repo URL, commit hash, and confirmation that check passed. Also record the submission id + claim code in the entry's status file.
